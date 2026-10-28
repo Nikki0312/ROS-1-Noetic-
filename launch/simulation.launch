@@ -1,0 +1,15 @@
+<launch>
+  <arg name="timeout_sec" default="3.0" />
+
+  <node pkg="bf_ros_telemetry"
+        type="sim_telemetry.py"
+        name="sim_telemetry"
+        output="screen" />
+
+  <node pkg="bf_ros_telemetry"
+        type="telemetry_monitor.py"
+        name="telemetry_monitor"
+        output="screen">
+    <param name="timeout_sec" value="$(arg timeout_sec)" type="double" />
+  </node>
+</launch>
